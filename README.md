@@ -141,16 +141,6 @@ Este projeto é mantido como código aberto. Se você achou útil, considere apo
 
 Este projeto está licenciado sob a **Licença MIT** - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## 🚀 Roadmap Futuro
-
-- [ ] Modo contra IA (computador)
-- [ ] Diferentes níveis de dificuldade da IA
-- [ ] Histórico de jogos
-- [ ] Temas de cores personalizáveis
-- [ ] Modo online multiplayer
-- [ ] Estatísticas avançadas
-- [ ] Suporte a PWA (Progressive Web App)
-
 ## 🤝 Contribuindo
 
 Contribuições são bem-vindas! Sinta-se livre para:
@@ -166,7 +156,6 @@ Contribuições são bem-vindas! Sinta-se livre para:
 Se você encontrar algum problema ou tiver sugestões:
 
 - 🐛 [Abra uma issue](https://github.com/dwildt/tictactoe/issues)
-- 💬 [Discussões](https://github.com/dwildt/tictactoe/discussions)
 
 ---
 
