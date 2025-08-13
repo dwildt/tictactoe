@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha - Wildtech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="loading" class="loading">Carregando traduções...</div>
+        
+        <div id="gameContainer" style="display: none;">
+            <header>
+                <h1 id="title">Jogo da Velha</h1>
+                <div class="language-selector">
+                    <select id="languageSelect">
+                        <option value="pt">Português</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select>
+                </div>
+            </header>
+
+            <main>
+                <div class="game-controls">
+                    <div class="game-mode">
+                        <label for="gameMode" id="gameModeLabel">Modo de Jogo:</label>
+                        <select id="gameMode">
+                            <option value="simple" id="simpleModeOption">Simples</option>
+                            <option value="best-of-3" id="bestOf3Option">Melhor de 3</option>
+                            <option value="best-of-5" id="bestOf5Option">Melhor de 5</option>
+                        </select>
+                    </div>
+                    
+                    <div class="score-board">
+                        <div class="player-score">
+                            <h3 id="playerXLabel">Jogador X</h3>
+                            <span id="scoreX">0</span>
+                        </div>
+                        <div class="player-score">
+                            <h3 id="playerOLabel">Jogador O</h3>
+                            <span id="scoreO">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="game-info">
+                    <p id="currentPlayer">Vez do jogador X</p>
+                    <p id="gameStatus"></p>
+                </div>
+
+                <div class="game-board" id="gameBoard">
+                    <div class="cell" data-cell="0"></div>
+                    <div class="cell" data-cell="1"></div>
+                    <div class="cell" data-cell="2"></div>
+                    <div class="cell" data-cell="3"></div>
+                    <div class="cell" data-cell="4"></div>
+                    <div class="cell" data-cell="5"></div>
+                    <div class="cell" data-cell="6"></div>
+                    <div class="cell" data-cell="7"></div>
+                    <div class="cell" data-cell="8"></div>
+                </div>
+
+                <div class="game-controls">
+                    <button id="resetGame" class="btn">Reiniciar Jogo</button>
+                    <button id="resetScore" class="btn btn-secondary">Zerar Placar</button>
+                </div>
+            </main>
+
+            <footer>
+                <p id="footerText">
+                    Apoie o desenvolvimento: 
+                    <a href="https://github.com/sponsors/dwildt" target="_blank" id="sponsorLink">GitHub Sponsors</a>
+                </p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
