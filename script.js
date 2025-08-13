@@ -244,7 +244,7 @@ class TicTacToeGame {
         document.getElementById('resetGame').textContent = t.resetGame || 'Reiniciar Jogo';
         document.getElementById('resetScore').textContent = t.resetScore || 'Zerar Placar';
         
-        const footerText = `${t.supportDev || 'Apoie o desenvolvimento:'} <a href="https://github.com/sponsors/dwildt" target="_blank" id="sponsorLink">${t.githubSponsors || 'GitHub Sponsors'}</a>`;
+        const footerText = `${t.supportDev || 'Apoie o desenvolvimento:'} <a href="https://github.com/sponsors/dwildt" target="_blank" id="sponsorLink">${t.githubSponsors || 'GitHub Sponsors'}</a> | <a href="https://github.com/dwildt/tictactoe" target="_blank" id="repoLink">${t.viewCode || 'Ver código no GitHub'}</a>`;
         document.getElementById('footerText').innerHTML = footerText;
     }
 
