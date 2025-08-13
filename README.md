@@ -15,6 +15,12 @@ Um jogo da velha moderno e responsivo desenvolvido com JavaScript vanilla, usand
 - 📊 **Sistema de Pontuação**: Controle de vitórias com reset
 - ✨ **Animações**: Efeitos visuais para melhor experiência
 
+## 🌐 Jogar Online
+
+🎮 **[Jogar agora no GitHub Pages](https://dwildt.github.io/tictactoe)**
+
+Acesse diretamente sem precisar fazer download ou configurar servidor local!
+
 ## 🛠️ Tecnologias Utilizadas
 
 - **HTML5**: Estrutura semântica
