@@ -141,10 +141,6 @@ Este projeto é mantido como código aberto. Se você achou útil, considere apo
 
 Este projeto está licenciado sob a **Licença MIT** - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## 👨‍💻 Autor
-
-**Douglas Wildt** - [@dwildt](https://github.com/dwildt)
-
 ## 🚀 Roadmap Futuro
 
 - [ ] Modo contra IA (computador)
