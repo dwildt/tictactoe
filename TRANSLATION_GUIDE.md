@@ -127,8 +127,10 @@ No arquivo `index.html`, adicione a opção no select:
 ### ❌ Não Permitido
 - Modificar as chaves (keys) do JSON
 - Alterar estrutura do arquivo
-- Mexer em código JavaScript/HTML
+- Mexer em código JavaScript/HTML/CSS
 - Remover ou adicionar chaves
+- Modificar classes CSS do Atomic Design
+- Alterar estrutura de componentes
 
 ## 🆘 Problemas Comuns
 
@@ -143,6 +145,11 @@ No arquivo `index.html`, adicione a opção no select:
 ### Caracteres estranhos
 - Salve o arquivo com codificação UTF-8
 - Evite caracteres de controle
+
+### Layout quebrado
+- **Não modifique** arquivos CSS ou HTML
+- O layout usa Atomic Design e é mantido pelos desenvolvedores
+- Reporte problemas de layout como issues no GitHub
 
 ## 📞 Suporte
 

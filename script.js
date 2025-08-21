@@ -79,7 +79,7 @@ class TicTacToeGame {
 
         this.board[cellIndex] = this.currentPlayer;
         event.target.textContent = this.currentPlayer;
-        event.target.classList.add(this.currentPlayer.toLowerCase());
+        event.target.classList.add(`cell--${this.currentPlayer.toLowerCase()}`);
 
         if (this.checkWinner()) {
             this.handleGameEnd(this.currentPlayer);
@@ -104,7 +104,7 @@ class TicTacToeGame {
 
     highlightWinningCells(combination) {
         combination.forEach(index => {
-            document.querySelector(`[data-cell="${index}"]`).classList.add('winner');
+            document.querySelector(`[data-cell="${index}"]`).classList.add('cell--winner');
         });
     }
 
@@ -196,7 +196,7 @@ class TicTacToeGame {
         const cells = document.querySelectorAll('.cell');
         cells.forEach(cell => {
             cell.textContent = '';
-            cell.classList.remove('x', 'o', 'winner');
+            cell.classList.remove('cell--x', 'cell--o', 'cell--winner');
         });
 
         if (this.checkSeriesWinner()) {

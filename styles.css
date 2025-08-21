@@ -1,3 +1,8 @@
+/* ==============================================
+   ATOMIC DESIGN CSS ARCHITECTURE
+   ============================================== */
+
+/* Base Styles & Design Tokens */
 * {
     margin: 0;
     padding: 0;
@@ -5,152 +10,134 @@
 }
 
 :root {
+    /* Color Tokens */
     --wildtech-orange: #ff7b00;
     --wildtech-brown: #8b4513;
     --bg-color: #f5f5f5;
     --text-color: #333;
     --cell-bg: white;
     --border-color: #ddd;
+    
+    /* Spacing Tokens */
+    --space-xs: 5px;
+    --space-sm: 10px;
+    --space-md: 15px;
+    --space-lg: 20px;
+    --space-xl: 30px;
+    
+    /* Typography Tokens */
+    --font-family: 'Arial', sans-serif;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.2rem;
+    --font-size-xl: 1.8rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+    
+    /* Border Radius Tokens */
+    --radius-sm: 5px;
+    --radius-md: 10px;
+    
+    /* Shadow Tokens */
+    --shadow-sm: 0 2px 10px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 15px rgba(0,0,0,0.2);
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-family);
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
 }
 
-.container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
+/* ==============================================
+   ATOMS - Basic Building Blocks
+   ============================================== */
 
-header {
-    text-align: center;
-    margin-bottom: 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-h1 {
-    color: var(--wildtech-orange);
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-}
-
-.language-selector select {
-    background-color: var(--wildtech-brown);
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.language-selector select:focus {
-    outline: 2px solid var(--wildtech-orange);
-}
-
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.game-controls {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.game-mode label {
-    margin-right: 10px;
-    font-weight: bold;
-    color: var(--wildtech-brown);
-}
-
-.game-mode select {
+/* Atom: Button */
+.btn {
     background-color: var(--wildtech-orange);
     color: white;
     border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
+    padding: 12px 24px;
+    font-size: var(--font-size-base);
+    border-radius: var(--radius-sm);
     cursor: pointer;
-}
-
-.score-board {
-    display: flex;
-    gap: 30px;
-}
-
-.player-score {
-    text-align: center;
-}
-
-.player-score h3 {
-    color: var(--wildtech-brown);
-    margin-bottom: 5px;
-    font-size: 1.1rem;
-}
-
-.player-score span {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--wildtech-orange);
-}
-
-.game-info {
-    text-align: center;
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.game-info p {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-#currentPlayer {
-    color: var(--wildtech-brown);
+    transition: background-color 0.3s ease;
     font-weight: bold;
 }
 
-#gameStatus {
-    color: var(--wildtech-orange);
-    font-weight: bold;
-    min-height: 1.5rem;
+.btn:hover {
+    background-color: #e66900;
 }
 
-.game-board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-    max-width: 300px;
-    margin: 0 auto;
+.btn--secondary {
     background-color: var(--wildtech-brown);
-    padding: 5px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
+.btn--secondary:hover {
+    background-color: #7a3d10;
+}
+
+/* Atom: Select */
+.select {
+    border: none;
+    padding: 8px 12px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+}
+
+.select--primary {
+    background-color: var(--wildtech-orange);
+    color: white;
+}
+
+.select--secondary {
+    background-color: var(--wildtech-brown);
+    color: white;
+}
+
+.select:focus {
+    outline: 2px solid var(--wildtech-orange);
+}
+
+/* Atom: Label */
+.label {
+    font-weight: bold;
+    margin-right: var(--space-sm);
+}
+
+.label--primary {
+    color: var(--wildtech-brown);
+}
+
+/* Atom: Text */
+.text {
+    margin-bottom: var(--space-xs);
+}
+
+.text--lg {
+    font-size: var(--font-size-lg);
+}
+
+.text--center {
+    text-align: center;
+}
+
+.text--bold {
+    font-weight: bold;
+}
+
+.text--primary {
+    color: var(--wildtech-brown);
+}
+
+.text--accent {
+    color: var(--wildtech-orange);
+}
+
+/* Atom: Cell */
 .cell {
     aspect-ratio: 1;
     background-color: var(--cell-bg);
@@ -161,7 +148,7 @@ main {
     justify-content: center;
     font-size: 3rem;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     transition: all 0.2s ease;
     min-height: 80px;
 }
@@ -171,86 +158,218 @@ main {
     transform: scale(0.98);
 }
 
-.cell.x {
+.cell--x {
     color: var(--wildtech-orange);
 }
 
-.cell.o {
+.cell--o {
     color: var(--wildtech-brown);
 }
 
-.cell.winner {
+.cell--winner {
     background-color: rgba(255, 123, 0, 0.2);
     animation: pulse 1s infinite;
 }
+
+/* Atom: Title */
+.title {
+    color: var(--wildtech-orange);
+    font-size: var(--font-size-3xl);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Atom: Link */
+.link {
+    color: var(--wildtech-orange);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Atom: Score Display */
+.score {
+    font-size: var(--font-size-2xl);
+    font-weight: bold;
+    color: var(--wildtech-orange);
+}
+
+/* ==============================================
+   MOLECULES - Groups of Atoms
+   ============================================== */
+
+/* Molecule: Language Selector */
+.language-selector {
+    /* Inherits select atom styles */
+}
+
+/* Molecule: Game Mode Selector */
+.game-mode {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
+/* Molecule: Player Score */
+.player-score {
+    text-align: center;
+}
+
+.player-score__label {
+    color: var(--wildtech-brown);
+    margin-bottom: var(--space-xs);
+    font-size: 1.1rem;
+}
+
+/* Molecule: Score Board */
+.score-board {
+    display: flex;
+    gap: var(--space-xl);
+}
+
+/* Molecule: Game Info */
+.game-info {
+    text-align: center;
+    background-color: white;
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.game-info__status {
+    color: var(--wildtech-orange);
+    font-weight: bold;
+    min-height: 1.5rem;
+}
+
+/* ==============================================
+   ORGANISMS - Complex Components
+   ============================================== */
+
+/* Organism: Game Board */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xs);
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: var(--wildtech-brown);
+    padding: var(--space-xs);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+/* Organism: Game Controls */
+.game-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+    background-color: white;
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Organism: Header */
+.header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+}
+
+/* Organism: Footer */
+.footer {
+    text-align: center;
+    margin-top: var(--space-xl);
+    padding: var(--space-lg);
+    background-color: white;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ==============================================
+   TEMPLATES - Page Layouts
+   ============================================== */
+
+/* Template: Main Container */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--space-lg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Template: Main Content Area */
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+/* ==============================================
+   PAGES - Specific States
+   ============================================== */
+
+/* Page: Loading State */
+.loading {
+    text-align: center;
+    padding: var(--space-lg);
+    color: var(--wildtech-orange);
+}
+
+/* ==============================================
+   ANIMATIONS & UTILITIES
+   ============================================== */
 
 @keyframes pulse {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
 }
 
-.btn {
-    background-color: var(--wildtech-orange);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-}
-
-.btn:hover {
-    background-color: #e66900;
-}
-
-.btn.btn-secondary {
-    background-color: var(--wildtech-brown);
-}
-
-.btn.btn-secondary:hover {
-    background-color: #7a3d10;
-}
-
-footer {
+/* Utility Classes */
+.u-text-center {
     text-align: center;
-    margin-top: 30px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-footer a {
-    color: var(--wildtech-orange);
-    text-decoration: none;
-    font-weight: bold;
+.u-mb-sm {
+    margin-bottom: var(--space-sm);
 }
 
-footer a:hover {
-    text-decoration: underline;
+.u-mb-md {
+    margin-bottom: var(--space-md);
 }
 
-.loading {
-    text-align: center;
-    padding: 20px;
-    color: var(--wildtech-orange);
+.u-mb-lg {
+    margin-bottom: var(--space-lg);
 }
 
-/* Responsividade */
+/* ==============================================
+   RESPONSIVE DESIGN
+   ============================================== */
 @media (max-width: 768px) {
     .container {
-        padding: 15px;
+        padding: var(--space-md);
     }
     
-    h1 {
-        font-size: 2rem;
+    .title {
+        font-size: var(--font-size-2xl);
     }
     
-    header {
+    .header {
         flex-direction: column;
-        gap: 15px;
+        gap: var(--space-md);
     }
     
     .game-controls {
@@ -273,8 +392,8 @@ footer a:hover {
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 1.8rem;
+    .title {
+        font-size: var(--font-size-xl);
     }
     
     .game-board {
@@ -285,11 +404,11 @@ footer a:hover {
         font-size: 2rem;
     }
     
-    .player-score span {
+    .score {
         font-size: 1.5rem;
     }
     
     .score-board {
-        gap: 20px;
+        gap: var(--space-lg);
     }
 }

@@ -1,6 +1,6 @@
 # 🎮 Jogo da Velha - Wildtech
 
-Um jogo da velha moderno e responsivo desenvolvido com JavaScript vanilla, usando as cores oficiais da Wildtech.
+Um jogo da velha moderno e responsivo desenvolvido com JavaScript vanilla, seguindo a metodologia **Atomic Design** e usando as cores oficiais da Wildtech.
 
 ## 🌟 Características
 
@@ -14,6 +14,7 @@ Um jogo da velha moderno e responsivo desenvolvido com JavaScript vanilla, usand
 - 🎨 **Visual Moderno**: Usando as cores oficiais da Wildtech
 - 📊 **Sistema de Pontuação**: Controle de vitórias com reset
 - ✨ **Animações**: Efeitos visuais para melhor experiência
+- 🧩 **Atomic Design**: Arquitetura baseada em componentes reutilizáveis
 
 ## 🌐 Jogar Online
 
@@ -23,17 +24,30 @@ Acesse diretamente sem precisar fazer download ou configurar servidor local!
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5**: Estrutura semântica
-- **CSS3**: Estilização com cores da Wildtech e design responsivo
+- **HTML5**: Estrutura semântica com arquitetura Atomic Design
+- **CSS3**: Estilização modular com Design Tokens e BEM methodology
 - **JavaScript ES6+**: Lógica do jogo com classes e métodos modernos
+- **Atomic Design**: Metodologia para criação de sistemas de design escaláveis
+- **Design Tokens**: Variáveis CSS para consistência visual
 - **Sistema i18n**: Traduções em arquivo JSON separado
 - **Jest**: Framework de testes unitários
 - **Fetch API**: Carregamento assíncrono de traduções
 
-## 🎨 Cores da Wildtech
+## 🎨 Design System
 
+### Cores da Wildtech
 - **Laranja**: `#ff7b00` - Cor principal para elementos de destaque
 - **Marrom**: `#8b4513` - Cor secundária para contraste e elegância
+
+### Arquitetura Atomic Design
+O projeto segue os princípios do Atomic Design com componentes organizados em:
+- **⚛️ Atoms**: Botões, inputs, labels, células
+- **🧬 Molecules**: Seletor de idioma, placar, controles de jogo
+- **🦠 Organisms**: Header, tabuleiro, footer
+- **📄 Templates**: Layout principal da página
+- **🌐 Pages**: Estados específicos (loading, jogo ativo)
+
+📖 **[Ver documentação completa do Atomic Design](ATOMIC_DESIGN.md)**
 
 ## 🚀 Como Usar
 
@@ -52,17 +66,17 @@ npm install
 
 3. **Execute com servidor local** (necessário para carregar traduções):
 ```bash
-# Usando Python 3
-python3 -m http.server 8000
+# Usando npm scripts (recomendado)
+npm start              # Inicia servidor na porta 3001
+npm run dev            # Inicia servidor e abre navegador automaticamente
 
-# Usando Node.js
-npx http-server
-
-# Usando PHP  
-php -S localhost:8000
+# Métodos alternativos
+python3 -m http.server 8000    # Usando Python 3
+npx http-server -p 8000        # Usando Node.js diretamente
+php -S localhost:8000          # Usando PHP
 ```
 
-4. Acesse: `http://localhost:8000`
+4. Acesse: `http://localhost:3001` (com npm) ou `http://localhost:8000` (outros métodos)
 
 ### ⚠️ Nota Importante
 O jogo precisa de servidor local para carregar o arquivo `translations.json` devido às políticas CORS dos navegadores.
@@ -101,6 +115,7 @@ Os testes cobrem:
 - ✅ **Consistência**: Padrões entre idiomas
 - ✅ **Qualidade**: Textos válidos e sem duplicação
 - ✅ **Integridade**: Caracteres especiais e tamanhos
+- ✅ **Componentes**: Validação da estrutura Atomic Design
 
 ## 📱 Responsividade
 
@@ -129,6 +144,37 @@ O sistema usa arquivo JSON separado (`translations.json`) facilitando o trabalho
 - **Guia completo**: [TRANSLATION_GUIDE.md](TRANSLATION_GUIDE.md)
 - **Sem código**: Tradutores trabalham apenas com texto
 - **Fácil manutenção**: Adição de idiomas sem afetar o código
+
+## 🏗️ Arquitetura do Projeto
+
+### Estrutura de Arquivos
+```
+tictactoe/
+├── index.html              # Template principal com estrutura Atomic Design
+├── styles.css              # CSS organizado por atoms, molecules, organisms
+├── script.js               # Lógica do jogo com classes ES6+
+├── translations.json       # Sistema de internacionalização
+├── tests/
+│   ├── setup.js           # Configuração do ambiente de testes
+│   └── translations.test.js # Testes de validação das traduções
+├── ATOMIC_DESIGN.md        # Documentação da arquitetura de componentes
+├── TRANSLATION_GUIDE.md    # Guia para tradutores
+├── CLAUDE.md              # Guia para Claude Code
+└── README.md              # Este arquivo
+```
+
+### Princípios de Design
+- **Component-Based**: Cada elemento é um componente reutilizável
+- **Mobile-First**: Design responsivo começando pelo mobile
+- **Accessible**: Estrutura semântica e navegação por teclado
+- **Performant**: CSS otimizado e JavaScript vanilla
+- **Maintainable**: Código organizado e bem documentado
+
+## 📚 Documentação Adicional
+
+- **[🧩 Atomic Design](ATOMIC_DESIGN.md)**: Arquitetura de componentes detalhada
+- **[🌍 Translation Guide](TRANSLATION_GUIDE.md)**: Guia completo para tradutores
+- **[🤖 Claude.md](CLAUDE.md)**: Orientações para desenvolvimento com Claude Code
 
 ## 🤝 Como Apoiar
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo da Velha - Wildtech</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -11,10 +12,13 @@
         <div id="loading" class="loading">Carregando traduções...</div>
         
         <div id="gameContainer" style="display: none;">
-            <header>
-                <h1 id="title">Jogo da Velha</h1>
+            <!-- ORGANISM: Header -->
+            <header class="header">
+                <!-- ATOM: Title -->
+                <h1 id="title" class="title">Jogo da Velha</h1>
+                <!-- MOLECULE: Language Selector -->
                 <div class="language-selector">
-                    <select id="languageSelect">
+                    <select id="languageSelect" class="select select--secondary">
                         <option value="pt">Português</option>
                         <option value="en">English</option>
                         <option value="es">Español</option>
@@ -22,35 +26,44 @@
                 </div>
             </header>
 
-            <main>
+            <!-- TEMPLATE: Main Content Area -->
+            <main class="main">
+                <!-- ORGANISM: Game Controls -->
                 <div class="game-controls">
+                    <!-- MOLECULE: Game Mode Selector -->
                     <div class="game-mode">
-                        <label for="gameMode" id="gameModeLabel">Modo de Jogo:</label>
-                        <select id="gameMode">
+                        <label for="gameMode" id="gameModeLabel" class="label label--primary">Modo de Jogo:</label>
+                        <select id="gameMode" class="select select--primary">
                             <option value="simple" id="simpleModeOption">Simples</option>
                             <option value="best-of-3" id="bestOf3Option">Melhor de 3</option>
                             <option value="best-of-5" id="bestOf5Option">Melhor de 5</option>
                         </select>
                     </div>
                     
+                    <!-- MOLECULE: Score Board -->
                     <div class="score-board">
+                        <!-- MOLECULE: Player Score -->
                         <div class="player-score">
-                            <h3 id="playerXLabel">Jogador X</h3>
-                            <span id="scoreX">0</span>
+                            <h3 id="playerXLabel" class="player-score__label">Jogador X</h3>
+                            <span id="scoreX" class="score">0</span>
                         </div>
+                        <!-- MOLECULE: Player Score -->
                         <div class="player-score">
-                            <h3 id="playerOLabel">Jogador O</h3>
-                            <span id="scoreO">0</span>
+                            <h3 id="playerOLabel" class="player-score__label">Jogador O</h3>
+                            <span id="scoreO" class="score">0</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- MOLECULE: Game Info -->
                 <div class="game-info">
-                    <p id="currentPlayer">Vez do jogador X</p>
-                    <p id="gameStatus"></p>
+                    <p id="currentPlayer" class="text text--lg text--center text--bold text--primary">Vez do jogador X</p>
+                    <p id="gameStatus" class="game-info__status"></p>
                 </div>
 
+                <!-- ORGANISM: Game Board -->
                 <div class="game-board" id="gameBoard">
+                    <!-- ATOMS: Cells -->
                     <div class="cell" data-cell="0"></div>
                     <div class="cell" data-cell="1"></div>
                     <div class="cell" data-cell="2"></div>
@@ -62,18 +75,22 @@
                     <div class="cell" data-cell="8"></div>
                 </div>
 
+                <!-- ORGANISM: Game Controls (Action Buttons) -->
                 <div class="game-controls">
+                    <!-- ATOMS: Buttons -->
                     <button id="resetGame" class="btn">Reiniciar Jogo</button>
-                    <button id="resetScore" class="btn btn-secondary">Zerar Placar</button>
+                    <button id="resetScore" class="btn btn--secondary">Zerar Placar</button>
                 </div>
             </main>
 
-            <footer>
-                <p id="footerText">
+            <!-- ORGANISM: Footer -->
+            <footer class="footer">
+                <p id="footerText" class="text text--center">
                     Apoie o desenvolvimento: 
-                    <a href="https://github.com/sponsors/dwildt" target="_blank" id="sponsorLink">GitHub Sponsors</a>
+                    <!-- ATOMS: Links -->
+                    <a href="https://github.com/sponsors/dwildt" target="_blank" id="sponsorLink" class="link">GitHub Sponsors</a>
                     | 
-                    <a href="https://github.com/dwildt/tictactoe" target="_blank" id="repoLink">Ver código no GitHub</a>
+                    <a href="https://github.com/dwildt/tictactoe" target="_blank" id="repoLink" class="link">Ver código no GitHub</a>
                 </p>
             </footer>
         </div>
