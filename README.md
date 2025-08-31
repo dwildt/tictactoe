@@ -92,9 +92,11 @@ O jogo precisa de servidor local para carregar o arquivo `translations.json` dev
 4. **Acompanhe o Placar**: Veja as vitórias de cada jogador
 5. **Reinicie**: Use os botões para reiniciar o jogo ou zerar o placar
 
-## 🧪 Executar Testes
+## 🧪 Desenvolvimento e Qualidade de Código
 
-O projeto inclui testes unitários abrangentes usando Jest:
+O projeto inclui ferramentas abrangentes para manter a qualidade do código:
+
+### Testes Unitários (Jest)
 
 ```bash
 # Executar todos os testes
@@ -104,6 +106,28 @@ npm test
 npm run test:watch
 
 # Executar testes com relatório de cobertura
+npm run test:coverage
+```
+
+### Linting (ESLint)
+
+```bash
+# Verificar problemas de código
+npm run lint
+
+# Corrigir problemas automaticamente
+npm run lint:fix
+```
+
+### Verificação Completa (Lint + Testes)
+
+```bash
+# Executa lint e testes em sequência
+npm run check
+
+# Executa correção automática e testes
+npm run check:fix
+```
 npm run test:coverage
 ```
 
@@ -195,13 +219,33 @@ Este projeto está licenciado sob a **Licença MIT** - veja o arquivo [LICENSE](
 
 ## 🤝 Contribuindo
 
-Contribuições são bem-vindas! Sinta-se livre para:
+Contribuições são bem-vindas! Para manter a qualidade do código, siga estas diretrizes:
 
-1. Fazer fork do projeto
-2. Criar uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abrir um Pull Request
+### 🔍 Processo de Contribuição
+
+1. **Fork do projeto**
+2. **Criar uma branch para sua feature** (`git checkout -b feature/AmazingFeature`)
+3. **Instalar dependências** (`npm install`)
+4. **Fazer suas alterações**
+5. **Verificar qualidade do código** (`npm run check`)
+6. **Corrigir problemas** (`npm run check:fix` se necessário)
+7. **Commit suas mudanças** (`git commit -m 'Add some AmazingFeature'`)
+8. **Push para a branch** (`git push origin feature/AmazingFeature`)
+9. **Abrir um Pull Request**
+
+### ✅ Garantia de Qualidade
+
+- **Testes automáticos**: Todos os PRs são verificados via GitHub Actions
+- **Linting**: ESLint garante consistência do código
+- **Cobertura**: Testes unitários validam funcionalidades
+- **CI/CD**: Workflow automatizado para Node.js 18.x e 20.x
+
+### 🛠️ Ferramentas de Desenvolvimento
+
+- **Copilot & Claude Code**: Projeto preparado para assistentes de IA
+- **Atomic Design**: Arquitetura de componentes bem estruturada
+- **Jest**: Framework de testes robusto
+- **ESLint**: Padronização de código
 
 ## 📞 Suporte
 

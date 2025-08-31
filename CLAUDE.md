@@ -20,6 +20,21 @@ npm run test:watch
 npm run test:coverage
 ```
 
+### Linting (Code Quality)
+```bash
+# Check code for linting issues
+npm run lint
+
+# Auto-fix linting issues where possible
+npm run lint:fix
+
+# Run both linting and tests
+npm run check
+
+# Auto-fix and run tests
+npm run check:fix
+```
+
 ### Development Server
 Since the game uses fetch() to load translations, it requires a local server due to CORS policies:
 
@@ -94,3 +109,6 @@ Tests focus on translation file integrity and component validation:
 - Mobile-first responsive design with defined breakpoints
 - GitHub Pages deployment: https://dwildt.github.io/tictactoe
 - Components are designed for reusability and maintainability
+- **CI/CD**: GitHub Actions workflow runs lint and tests on Node.js 18.x and 20.x
+- **Code Quality**: ESLint configuration ensures code consistency
+- **AI-Ready**: Project structure optimized for Copilot and Claude Code integration
