@@ -12,7 +12,7 @@ async function loadTranslations() {
         return true;
     } catch (error) {
         console.error('Erro ao carregar traduções:', error);
-        
+
         // Fallback para traduções básicas em caso de erro
         translations = {
             pt: {
@@ -72,7 +72,7 @@ class TicTacToeGame {
 
     handleCellClick(event) {
         const cellIndex = parseInt(event.target.dataset.cell);
-        
+
         if (this.board[cellIndex] !== '' || !this.gameActive) {
             return;
         }
@@ -92,7 +92,7 @@ class TicTacToeGame {
     }
 
     checkWinner() {
-        for (let combination of this.winningCombinations) {
+        for (const combination of this.winningCombinations) {
             const [a, b, c] = combination;
             if (this.board[a] && this.board[a] === this.board[b] && this.board[a] === this.board[c]) {
                 this.highlightWinningCells(combination);
@@ -111,7 +111,7 @@ class TicTacToeGame {
     handleGameEnd(result) {
         this.gameActive = false;
         const t = translations[this.currentLanguage];
-        
+
         if (result === 'draw') {
             document.getElementById('gameStatus').textContent = t.draw;
             this.startAutoReset();
@@ -119,11 +119,11 @@ class TicTacToeGame {
             this.scores[result]++;
             const winnerText = `${t.winner} ${t['player' + result]} ${t.gameWon}`;
             document.getElementById('gameStatus').textContent = winnerText;
-            
+
             if (this.checkSeriesWinner()) {
                 const seriesWinner = this.getSeriesWinner();
                 setTimeout(() => {
-                    document.getElementById('gameStatus').textContent = 
+                    document.getElementById('gameStatus').textContent =
                         `${t['player' + seriesWinner]} ${t.seriesWon}`;
                 }, 2000);
                 // Não inicia o timer automático quando a série termina
@@ -132,13 +132,13 @@ class TicTacToeGame {
                 this.startAutoReset();
             }
         }
-        
+
         this.updateScoreDisplay();
     }
 
     checkSeriesWinner() {
         if (this.gameMode === 'simple') return false;
-        
+
         const targetWins = this.gameMode === 'best-of-3' ? 2 : 3;
         return this.scores.X >= targetWins || this.scores.O >= targetWins;
     }
@@ -162,7 +162,7 @@ class TicTacToeGame {
         this.countdownInterval = setInterval(() => {
             statusElement.textContent = `${t.startingNewGame} ${countdown} ${t.seconds}`;
             countdown--;
-            
+
             if (countdown < 0) {
                 clearInterval(this.countdownInterval);
             }
@@ -188,11 +188,11 @@ class TicTacToeGame {
     resetGame() {
         // Limpa o timer automático
         this.clearAutoReset();
-        
+
         this.board = Array(9).fill('');
         this.currentPlayer = 'X';
         this.gameActive = true;
-        
+
         const cells = document.querySelectorAll('.cell');
         cells.forEach(cell => {
             cell.textContent = '';
@@ -210,7 +210,7 @@ class TicTacToeGame {
     resetScore() {
         // Limpa o timer automático
         this.clearAutoReset();
-        
+
         this.scores = { X: 0, O: 0 };
         this.updateScoreDisplay();
         this.resetGame();
@@ -225,15 +225,15 @@ class TicTacToeGame {
         this.currentLanguage = event.target.value;
         this.updateInterface();
         this.updateDisplay();
-        document.documentElement.lang = this.currentLanguage === 'pt' ? 'pt-BR' : 
-                                       this.currentLanguage === 'en' ? 'en-US' : 'es-ES';
+        document.documentElement.lang = this.currentLanguage === 'pt' ? 'pt-BR' :
+            this.currentLanguage === 'en' ? 'en-US' : 'es-ES';
     }
 
     updateInterface() {
         const t = translations[this.currentLanguage];
-        
+
         if (!t) return; // Proteção caso as traduções não tenham carregado
-        
+
         document.getElementById('title').textContent = t.title || 'Jogo da Velha';
         document.getElementById('gameModeLabel').textContent = t.gameMode || 'Modo de Jogo:';
         document.getElementById('simpleModeOption').textContent = t.simple || 'Simples';
@@ -243,7 +243,7 @@ class TicTacToeGame {
         document.getElementById('playerOLabel').textContent = t.playerO || 'Jogador O';
         document.getElementById('resetGame').textContent = t.resetGame || 'Reiniciar Jogo';
         document.getElementById('resetScore').textContent = t.resetScore || 'Zerar Placar';
-        
+
         const footerText = `${t.supportDev || 'Apoie o desenvolvimento:'} <a href="https://github.com/sponsors/dwildt" target="_blank" id="sponsorLink">${t.githubSponsors || 'GitHub Sponsors'}</a> | <a href="https://github.com/dwildt/tictactoe" target="_blank" id="repoLink">${t.viewCode || 'Ver código no GitHub'}</a>`;
         document.getElementById('footerText').innerHTML = footerText;
     }
@@ -251,7 +251,7 @@ class TicTacToeGame {
     updateDisplay() {
         const t = translations[this.currentLanguage];
         if (!t) return;
-        
+
         const playerName = t['player' + this.currentPlayer];
         document.getElementById('currentPlayer').textContent = `${t.currentPlayerTurn} ${playerName}`;
     }
@@ -266,16 +266,16 @@ class TicTacToeGame {
 document.addEventListener('DOMContentLoaded', async () => {
     const loadingEl = document.getElementById('loading');
     const gameContainer = document.getElementById('gameContainer');
-    
+
     // Carregar traduções
     const success = await loadTranslations();
-    
+
     if (success) {
         loadingEl.textContent = 'Traduções carregadas!';
     } else {
         loadingEl.textContent = 'Usando traduções básicas...';
     }
-    
+
     // Pequena pausa para mostrar o status
     setTimeout(() => {
         loadingEl.style.display = 'none';

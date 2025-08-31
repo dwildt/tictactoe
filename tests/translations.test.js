@@ -64,7 +64,7 @@ describe('Sistema de Traduções', () => {
         test('todos os idiomas devem ter o mesmo número de chaves', () => {
             const languages = Object.keys(translations);
             const keyCounts = languages.map(lang => Object.keys(translations[lang]).length);
-            
+
             // Todos devem ter o mesmo número de chaves
             const firstCount = keyCounts[0];
             keyCounts.forEach(count => {
@@ -102,7 +102,7 @@ describe('Sistema de Traduções', () => {
             Object.keys(translations).forEach(lang => {
                 const values = Object.values(translations[lang]);
                 const uniqueValues = [...new Set(values)];
-                
+
                 // Permitir algumas duplicações comuns (como "GitHub Sponsors")
                 expect(uniqueValues.length).toBeGreaterThanOrEqual(values.length - 2);
             });
@@ -110,7 +110,7 @@ describe('Sistema de Traduções', () => {
 
         test('textos devem ter tamanho razoável', () => {
             Object.keys(translations).forEach(lang => {
-                Object.entries(translations[lang]).forEach(([key, value]) => {
+                Object.entries(translations[lang]).forEach(([_key, value]) => {
                     expect(value.length).toBeGreaterThan(0);
                     expect(value.length).toBeLessThan(100); // Limite razoável
                 });
@@ -119,7 +119,7 @@ describe('Sistema de Traduções', () => {
 
         test('não deve conter caracteres de controle', () => {
             Object.keys(translations).forEach(lang => {
-                Object.entries(translations[lang]).forEach(([key, value]) => {
+                Object.entries(translations[lang]).forEach(([_key, value]) => {
                     expect(value).not.toMatch(/[\x00-\x1F\x7F]/); // Caracteres de controle
                 });
             });
